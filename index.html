@@ -777,62 +777,66 @@
       .cta-outline{display:none}
       .burger{display:flex}
 
-      /* ===== HERO (mobile like reference) ===== */
+            /* ===== HERO (mobile like reference, FIX overlap) ===== */
       .hero-grid{
+        position: relative;
         grid-template-columns: 1fr;
         grid-template-areas:
-          "titles"
+          "speak"
+          "english"
           "photo";
         align-items: start;
-        gap: 18px;
+        gap: 0;
         padding-top: 22px;
         padding-bottom: 0;
       }
 
+      /* SPEAK line */
       .hero-left{
-        grid-area: titles;
-        padding-bottom: 0;
+        grid-area: speak;
+        padding: 18px 0 0;
         text-align: left;
-        position: relative;
-        padding-top: 18px; /* чтобы SPEAK не прилипал к шапке */
       }
 
-      /* Kicker справа сверху, как на референсе */
+      /* Kicker справа сверху (не внутри SPEAK, а поверх общего блока) */
       .hero-kicker{
         position: absolute;
-        top: 18px;
+        top: 22px;
         right: 0;
         max-width: 190px;
         text-align: right;
         margin: 0;
+        z-index: 3;
       }
 
-      /* SPEAK */
       .hero-left .hero-word{
         font-size: clamp(56px, 18vw, 86px);
         line-height: .82;
         letter-spacing: .01em;
+        margin: 0;
       }
 
-      /* ENGLISH рядом/под SPEAK в том же слое */
+      /* ENGLISH line */
       .hero-right{
-        grid-area: titles;
-        padding-bottom: 0;
+        grid-area: english;
+        padding: 0;
         text-align: left;
-        margin-top: 56px;
+        margin-top: -6px;   /* плотнее как на референсе */
       }
 
       .hero-right .hero-word{
         font-size: clamp(96px, 28vw, 140px);
         line-height: .82;
         letter-spacing: .01em;
+        margin: 0;
       }
 
-      /* Фото отдельной строкой ниже заголовка */
+      /* Photo */
       .hero-mid{
         grid-area: photo;
         justify-content: center;
         align-items: flex-end;
+        margin-top: 18px;
       }
 
       .hero-photo{
