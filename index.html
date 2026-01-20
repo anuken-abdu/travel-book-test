@@ -777,19 +777,68 @@
       .cta-outline{display:none}
       .burger{display:flex}
 
+      /* ===== HERO (mobile like reference) ===== */
       .hero-grid{
         grid-template-columns: 1fr;
-        align-items:center;
+        grid-template-areas:
+          "titles"
+          "photo";
+        align-items: start;
         gap: 18px;
+        padding-top: 22px;
         padding-bottom: 0;
       }
-      .hero-left, .hero-right{padding-bottom: 0; text-align:left}
-      .hero-right{order:3}
-      .hero-mid{order:2}
-      .hero-left{order:1}
-      .hero-word{font-size: clamp(58px, 16vw, 110px)}
-      .hero-photo{max-width: 380px; margin: 0 auto}
-      .hero-kicker{max-width: 520px}
+
+      .hero-left{
+        grid-area: titles;
+        padding-bottom: 0;
+        text-align: left;
+        position: relative;
+        padding-top: 18px; /* чтобы SPEAK не прилипал к шапке */
+      }
+
+      /* Kicker справа сверху, как на референсе */
+      .hero-kicker{
+        position: absolute;
+        top: 18px;
+        right: 0;
+        max-width: 190px;
+        text-align: right;
+        margin: 0;
+      }
+
+      /* SPEAK */
+      .hero-left .hero-word{
+        font-size: clamp(56px, 18vw, 86px);
+        line-height: .82;
+        letter-spacing: .01em;
+      }
+
+      /* ENGLISH рядом/под SPEAK в том же слое */
+      .hero-right{
+        grid-area: titles;
+        padding-bottom: 0;
+        text-align: left;
+        margin-top: 56px;
+      }
+
+      .hero-right .hero-word{
+        font-size: clamp(96px, 28vw, 140px);
+        line-height: .82;
+        letter-spacing: .01em;
+      }
+
+      /* Фото отдельной строкой ниже заголовка */
+      .hero-mid{
+        grid-area: photo;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .hero-photo{
+        max-width: 380px;
+        margin: 0 auto;
+      }
 
       .manifest-grid{grid-template-columns: 1fr; gap: 28px}
       .manifest-left{font-size: clamp(28px, 7vw, 44px)}
