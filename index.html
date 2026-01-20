@@ -6,7 +6,6 @@
   <title>GOVERDOVSKAYA — Speak English</title>
   <meta name="description" content="Преодолей языковой барьер и заговори по-английски уверенно." />
 
-  <!-- Fonts (condensed for big words + clean UI font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -777,80 +776,86 @@
       .cta-outline{display:none}
       .burger{display:flex}
 
-            /* ===== HERO (mobile like reference, FIX overlap) ===== */
+      /* ===== HERO (mobile MATCHING SCREENSHOT) ===== */
       .hero-grid{
-        position: relative;
         grid-template-columns: 1fr;
         grid-template-areas:
-          "speak"
-          "english"
+          "titles"
           "photo";
         align-items: start;
-        gap: 0;
-        padding-top: 22px;
+        gap: 0; /* Remove gap to tighten text stacking */
+        padding-top: 15px; /* Slight top padding */
         padding-bottom: 0;
       }
 
-      /* SPEAK line */
       .hero-left{
-        grid-area: speak;
-        padding: 18px 0 0;
+        grid-area: titles;
+        padding-bottom: 0;
         text-align: left;
+        position: relative;
+        padding-top: 0;
+        margin-bottom: -15px; /* Pull ENGLISH up towards SPEAK */
       }
 
-      /* Kicker справа сверху (не внутри SPEAK, а поверх общего блока) */
+      /* Kicker: Right aligned, top aligned with SPEAK */
       .hero-kicker{
         position: absolute;
-        top: 22px;
+        top: 6px; 
         right: 0;
-        max-width: 190px;
+        max-width: 45%;
         text-align: right;
         margin: 0;
-        z-index: 3;
+        line-height: 1.3;
+        font-size: 11px;
       }
 
+      /* SPEAK: Large but leaves room for kicker */
       .hero-left .hero-word{
-        font-size: clamp(56px, 18vw, 86px);
-        line-height: .82;
+        font-size: clamp(60px, 19vw, 90px);
+        line-height: 0.85;
         letter-spacing: .01em;
-        margin: 0;
+        color: #6d6d6d; /* Strict grey match */
       }
 
-      /* ENGLISH line */
+      /* ENGLISH: Massive, full width below */
       .hero-right{
-        grid-area: english;
-        padding: 0;
+        grid-area: titles;
+        padding-bottom: 0;
         text-align: left;
-        margin-top: -6px;   /* плотнее как на референсе */
+        margin-top: 0; 
+        position: relative;
+        z-index: 2; /* Ensure visual priority */
       }
 
       .hero-right .hero-word{
-        font-size: clamp(96px, 28vw, 140px);
-        line-height: .82;
+        font-size: clamp(80px, 26vw, 130px);
+        line-height: 0.85;
         letter-spacing: .01em;
-        margin: 0;
+        color: #6d6d6d;
       }
 
-      /* Photo */
+      /* Photo: Centered below text, slightly overlapping bottom of English if needed */
       .hero-mid{
         grid-area: photo;
         justify-content: center;
         align-items: flex-end;
-        margin-top: 18px;
+        margin-top: -10px;
       }
 
       .hero-photo{
         max-width: 380px;
         margin: 0 auto;
+        transform: translateY(0); /* Reset generic transform */
       }
 
+
+      /* Rest of responsive styles unchanged */
       .manifest-grid{grid-template-columns: 1fr; gap: 28px}
       .manifest-left{font-size: clamp(28px, 7vw, 44px)}
 
       .choose-grid{grid-template-columns: 1fr; gap: 26px}
       .cards{gap: 38px}
 
-      /* ===== Reviews mobile: list like screenshot + correct order ===== */
       .reviews-stage{
         min-height: auto;
         display: flex;
@@ -897,8 +902,6 @@
         box-shadow: none;
       }
 
-      /* Порядок карточек на мобиле как на твоём скрине:
-         Катя → Светлана → Александр → Даниил → далее остальные */
       .q1{order: 1}  /* Катя */
       .q4{order: 2}  /* Светлана */
       .q3{order: 3}  /* Александр */
@@ -949,7 +952,6 @@
     </div>
   </header>
 
-  <!-- Mobile overlay -->
   <div class="mobilePanel" id="mobilePanel" aria-hidden="true">
     <div class="mp-inner">
       <div class="mp-top">
@@ -972,7 +974,6 @@
   </div>
 
   <main id="top">
-    <!-- HERO -->
     <section class="hero">
       <div class="side-accent" aria-hidden="true"></div>
 
@@ -996,7 +997,6 @@
       <a class="hero-bar" href="#choose">ВЫБРАТЬ ФОРМАТ ОБУЧЕНИЯ</a>
     </section>
 
-    <!-- MANIFESTO -->
     <section class="manifest" id="manifest">
       <div class="wrap manifest-grid">
         <div class="manifest-left reveal">
@@ -1041,7 +1041,6 @@
       </div>
     </section>
 
-    <!-- CHOOSE -->
     <section class="choose" id="choose">
       <div class="choose-bg" aria-hidden="true"></div>
       <div class="brush" aria-hidden="true"></div>
@@ -1107,7 +1106,6 @@
       </div>
     </section>
 
-    <!-- REVIEWS -->
     <section class="reviews" id="reviews">
       <div class="wrap">
         <div class="reviews-stage">
@@ -1175,7 +1173,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="aboutHero" id="about">
       <div class="wrap aboutHero-grid">
         <div class="aboutTitle reveal">
@@ -1237,7 +1234,6 @@
       </div>
     </section>
 
-    <!-- GUIDE (anchor only, text minimal) -->
     <section id="guide" class="reveal" style="padding:70px 0; border-top:1px solid var(--line); background:#fff;">
       <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;">
         <div style="max-width:680px;">
@@ -1252,7 +1248,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer id="contacts">
       <button class="toTop" id="toTop" aria-label="Наверх"></button>
 
