@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#fbfbfd" />
+  <title>Travel Book + видеоурок — Путешествуй без стресса</title>
+  <meta name="description" content="Travel Book + видеоурок: готовые фразы и сценарии, чтобы в поездке говорить спокойно и уверенно — без стресса." />
+
+  <!-- Minimal favicon (replace with your own if needed) -->
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fbfbfd;
+      --bg2:#f7f8fc;
+      --card: rgba(255,255,255,.75);
+      --card2: rgba(255,255,255,.62);
+      --stroke: rgba(30,41,59,.12);
+      --stroke2: rgba(30,41,59,.08);
+      --text:#0f172a;
+      --muted: rgba(15,23,42,.66);
+      --muted2: rgba(15,23,42,.52);
+
+      /* нежная палитра */
+      --brand:#7c8cfb;     /* мягкий индиго */
+      --brand2:#7be0d2;    /* нежная мята */
+      --brand3:#f7c6da;    /* пудровый */
+      --brand4:#ffe3b3;    /* крем */
+
+      --shadow: 0 22px 60px rgba(2,6,23,.10);
+      --shadow2: 0 12px 34px rgba(2,6,23,.08);
+      --shadow3: 0 6px 18px rgba(2,6,23,.06);
+
+      --r: 22px;
+      --r2: 16px;
+      --r3: 12px;
+
+      --container: 1200px;
+      --pad: 24px;
+
+      --speed: 180ms;
+      --ease: cubic-bezier(.22,1,.36,1);
+      --ease2: cubic-bezier(.2,.9,.2,1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(124,140,251,.20), transparent 60%),
+        radial-gradient(900px 650px at 95% 0%, rgba(123,224,210,.18), transparent 55%),
+        radial-gradient(900px 650px at 70% 110%, rgba(247,198,218,.20), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    img { max-width: 100%; display:block; }
+
+    /* Accessibility helpers */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); border:0;
+    }
+    :focus-visible{
+      outline: 3px solid rgba(124,140,251,.5);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    /* Layout */
+    .container{
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* Subtle noise overlay (unique premium feel) */
+    .noise{
+      pointer-events:none;
+      position:fixed; inset:0;
+      opacity:.06;
+      mix-blend-mode:multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    }
+
+    /* Header / Nav */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(251,251,253,.82), rgba(251,251,253,.62));
+      border-bottom: 1px solid rgba(30,41,59,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 210px;
+    }
+    .brand-mark{
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      background:
+        radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.45)),
+        radial-gradient(40px 40px at 70% 60%, rgba(124,140,251,.35), rgba(123,224,210,.22)),
+        linear-gradient(135deg, rgba(124,140,251,.55), rgba(247,198,218,.45));
+      box-shadow: var(--shadow3);
+      border: 1px solid rgba(255,255,255,.55);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-mark:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 180deg, rgba(255,255,255,.0), rgba(255,255,255,.35), rgba(255,255,255,.0));
+      animation: spin 10s linear infinite;
+      opacity:.55;
+    }
+    @keyframes spin{ to{ transform: rotate(360deg); } }
+
+    .brand-title{
+      display:flex; flex-direction:column; line-height:1.05;
+    }
+    .brand-title b{
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .brand-title span{
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .menu{
+      display:flex; align-items:center; gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .menu a{
+      font-size: 14px;
+      color: rgba(15,23,42,.72);
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: background var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    .menu a:hover{
+      background: rgba(124,140,251,.12);
+      color: rgba(15,23,42,.92);
+    }
+
+    .nav-cta{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    /* Buttons */
+    .btn{
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor:pointer;
+      transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease), background var(--speed) var(--ease), border-color var(--speed) var(--ease);
+      display:inline-flex; align-items:center; gap: 10px;
+      white-space: nowrap;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      background:
+        radial-gradient(120px 80px at 20% 30%, rgba(255,255,255,.45), transparent 60%),
+        linear-gradient(135deg, rgba(124,140,251,.92), rgba(123,224,210,.72));
+      color: #0b1220;
+      box-shadow: 0 12px 30px rgba(124,140,251,.18);
+      border-color: rgba(255,255,255,.35);
+    }
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 44px rgba(124,140,251,.22);
+    }
+
+    .btn-secondary{
+      background: rgba(255,255,255,.56);
+      border-color: rgba(30,41,59,.12);
+      color: rgba(15,23,42,.84);
+      box-shadow: 0 10px 24px rgba(2,6,23,.05);
+    }
+    .btn-secondary:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,140,251,.22);
+      box-shadow: 0 16px 34px rgba(2,6,23,.07);
+    }
+
+    .btn-ghost{
+      background: transparent;
+      border-color: rgba(30,41,59,.12);
+      color: rgba(15,23,42,.78);
+    }
+    .btn-ghost:hover{
+      background: rgba(255,255,255,.48);
+    }
+
+    .chip{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.54);
+      color: rgba(15,23,42,.78);
+      font-size: 13px;
+      box-shadow: 0 10px 24px rgba(2,6,23,.04);
+    }
+
+    /* Sections */
+    section{ scroll-margin-top: 90px; }
+    .section{
+      padding: 76px 0;
+    }
+    .section-header{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap: 8px;
+      font-size: 13px;
+      color: rgba(15,23,42,.68);
+      padding: 8px 12px;
+      border: 1px solid rgba(30,41,59,.10);
+      border-radius: 999px;
+      background: rgba(255,255,255,.50);
+    }
+    .k-dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.25));
+      box-shadow: 0 0 0 6px rgba(124,140,251,.12);
+    }
+
+    h1,h2,h3{
+      margin:0;
+      letter-spacing: -0.03em;
+    }
+    h1{
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: clamp(34px, 4.6vw, 56px);
+      line-height: 1.02;
+    }
+    h2{
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.1;
+    }
+    h3{
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .lead{
+      font-size: 16.5px;
+      color: rgba(15,23,42,.70);
+      line-height: 1.7;
+      max-width: 56ch;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 54px;
+      position: relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .hero-left{
+      padding: 32px;
+      border-radius: calc(var(--r) + 8px);
+      background:
+        radial-gradient(600px 220px at 10% 0%, rgba(124,140,251,.18), transparent 55%),
+        radial-gradient(540px 240px at 90% 20%, rgba(123,224,210,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.48));
+      border: 1px solid rgba(30,41,59,.10);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(200px 140px at 10% 10%, rgba(255,255,255,.65), transparent 60%),
+        radial-gradient(240px 160px at 90% 30%, rgba(255,255,255,.40), transparent 62%),
+        linear-gradient(180deg, transparent, rgba(255,255,255,.10));
+      pointer-events:none;
+      opacity:.9;
+    }
+    .hero-left > * { position: relative; z-index: 1; }
+
+    .hero-sub{
+      display:flex; gap: 10px; align-items:center; flex-wrap: wrap;
+      margin: 14px 0 16px;
+    }
+
+    .hero-actions{
+      display:flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .trust-mini{
+      display:flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .bullet-row{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .mini-bullet{
+      display:flex; gap: 12px; align-items:flex-start;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.50);
+      box-shadow: 0 10px 24px rgba(2,6,23,.04);
+    }
+    .mini-bullet .icon{
+      width: 32px; height: 32px;
+      border-radius: 12px;
+      background:
+        radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.3)),
+        linear-gradient(135deg, rgba(124,140,251,.26), rgba(123,224,210,.18));
+      border: 1px solid rgba(30,41,59,.10);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .mini-bullet b{
+      display:block;
+      margin-bottom: 2px;
+      letter-spacing: -0.01em;
+    }
+    .mini-bullet span{
+      display:block;
+      font-size: 13.5px;
+      color: rgba(15,23,42,.62);
+      line-height: 1.5;
+    }
+
+    .hero-right{
+      display:grid;
+      grid-template-rows: 1fr auto;
+      gap: 16px;
+    }
+
+    .hero-visual{
+      border-radius: calc(var(--r) + 8px);
+      border: 1px solid rgba(30,41,59,.10);
+      background:
+        radial-gradient(900px 500px at 70% 30%, rgba(124,140,251,.15), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.42));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+      min-height: 420px;
+    }
+    .hero-visual:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 400px at 20% 20%, rgba(247,198,218,.22), transparent 55%),
+        radial-gradient(520px 380px at 75% 30%, rgba(123,224,210,.20), transparent 58%),
+        radial-gradient(420px 320px at 60% 80%, rgba(255,227,179,.18), transparent 60%);
+      pointer-events:none;
+    }
+
+    .hero-photo{
+      position:absolute;
+      inset: 16px;
+      border-radius: calc(var(--r) + 2px);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(255,255,255,.30);
+    }
+    .hero-photo img{
+      width:100%; height:100%; object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .hero-photo:after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(251,251,253,.00), rgba(251,251,253,.18) 70%, rgba(251,251,253,.28));
+    }
+
+    .floating-card{
+      position:absolute;
+      left: 22px;
+      bottom: 22px;
+      right: 22px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(30,41,59,.10);
+      box-shadow: 0 18px 40px rgba(2,6,23,.10);
+      backdrop-filter: blur(10px);
+    }
+    .floating-left{
+      display:flex; align-items:center; gap: 12px; min-width: 0;
+    }
+    .avatar{
+      width: 44px; height: 44px; border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(30,41,59,.12);
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+      flex: 0 0 auto;
+      background: rgba(255,255,255,.35);
+    }
+    .avatar img{ width:100%; height:100%; object-fit: cover; }
+    .floating-left .meta{
+      min-width: 0;
+    }
+    .floating-left .meta b{
+      display:block;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .floating-left .meta span{
+      display:block;
+      font-size: 12.5px;
+      color: rgba(15,23,42,.58);
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+    .mock{
+      display:flex; align-items:center; gap: 10px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 10px 22px rgba(2,6,23,.05);
+      flex: 0 0 auto;
+    }
+    .mock img{
+      width: 44px; height: 44px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(30,41,59,.10);
+    }
+    .mock span{
+      font-size: 12.5px;
+      color: rgba(15,23,42,.62);
+      line-height: 1.2;
+    }
+    .mock span b{
+      display:block;
+      color: rgba(15,23,42,.82);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .hero-bottom{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .micro{
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 12px 26px rgba(2,6,23,.05);
+      display:flex; gap: 12px; align-items:flex-start;
+      min-height: 84px;
+    }
+    .micro .ic{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(30,41,59,.10);
+      background: linear-gradient(135deg, rgba(124,140,251,.20), rgba(247,198,218,.16));
+      flex:0 0 auto;
+    }
+    .micro b{
+      display:block;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      margin-top: 1px;
+    }
+    .micro span{
+      display:block;
+      font-size: 13px;
+      color: rgba(15,23,42,.62);
+      line-height: 1.45;
+      margin-top: 3px;
+    }
+
+    /* Cards grid blocks */
+    .grid{
+      display:grid;
+      gap: 16px;
+    }
+    .grid-4{ grid-template-columns: repeat(4, 1fr); }
+    .grid-3{ grid-template-columns: repeat(3, 1fr); }
+    .grid-2{ grid-template-columns: repeat(2, 1fr); }
+
+    .card{
+      border-radius: var(--r);
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(220px 120px at 10% 0%, rgba(124,140,251,.12), transparent 55%),
+        radial-gradient(220px 120px at 90% 20%, rgba(123,224,210,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.10), transparent);
+      pointer-events:none;
+      opacity:.8;
+    }
+    .card > *{ position: relative; z-index: 1; }
+
+    .card-top{
+      display:flex; align-items:center; gap: 12px;
+      margin-bottom: 8px;
+    }
+    .icon-pill{
+      width: 42px; height: 42px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(30,41,59,.10);
+      background:
+        radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.25)),
+        linear-gradient(135deg, rgba(124,140,251,.18), rgba(247,198,218,.15));
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+      flex:0 0 auto;
+    }
+    .card p{ margin-top: 6px; }
+
+    .soft{
+      border: 1px solid rgba(30,41,59,.08);
+      background: rgba(255,255,255,.50);
+      box-shadow: 0 10px 24px rgba(2,6,23,.04);
+    }
+
+    /* How it works steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .step{
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.56);
+      box-shadow: 0 12px 26px rgba(2,6,23,.05);
+      min-height: 120px;
+      position: relative;
+      overflow:hidden;
+    }
+    .step:before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(240px 150px at 10% 0%, rgba(123,224,210,.12), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .step > *{ position: relative; z-index: 1; }
+    .num{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.62);
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+    .step b{
+      display:block;
+      margin-top: 10px;
+      letter-spacing: -0.02em;
+    }
+    .step span{
+      display:block;
+      margin-top: 5px;
+      font-size: 13px;
+      color: rgba(15,23,42,.62);
+      line-height: 1.5;
+    }
+
+    /* Author + testimonials */
+    .author{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+    .author-photo{
+      border-radius: calc(var(--r) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.42);
+      box-shadow: var(--shadow2);
+      min-height: 360px;
+      position: relative;
+    }
+    .author-photo img{
+      width:100%; height:100%; object-fit: cover;
+      transform: scale(1.02);
+    }
+    .author-photo:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(251,251,253,.0), rgba(251,251,253,.18) 65%, rgba(251,251,253,.30));
+    }
+    .author-card{
+      padding: 20px;
+      border-radius: calc(var(--r) + 8px);
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow:hidden;
+    }
+    .author-card:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(320px 180px at 0% 0%, rgba(124,140,251,.14), transparent 60%),
+        radial-gradient(320px 180px at 100% 20%, rgba(247,198,218,.14), transparent 62%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .author-card > *{ position: relative; z-index:1; }
+
+    .facts{
+      margin-top: 14px;
+      display:grid;
+      gap: 10px;
+    }
+    .fact{
+      display:flex; gap: 12px; align-items:flex-start;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 24px rgba(2,6,23,.04);
+    }
+    .fact .ic{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: linear-gradient(135deg, rgba(123,224,210,.16), rgba(124,140,251,.16));
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .fact b{ display:block; font-size: 14px; }
+    .fact span{ display:block; font-size: 13px; color: rgba(15,23,42,.62); margin-top: 2px; line-height: 1.5; }
+
+    .quote{
+      font-size: 14px;
+      color: rgba(15,23,42,.72);
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    /* FAQ */
+    .faq{
+      margin-top: 18px;
+      display:grid;
+      gap: 10px;
+    }
+    details{
+      border-radius: 18px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.60);
+      box-shadow: 0 12px 26px rgba(2,6,23,.05);
+      overflow:hidden;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 16px 16px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .faq-content{
+      padding: 0 16px 16px;
+      color: rgba(15,23,42,.62);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .chev{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.62);
+      display:grid; place-items:center;
+      transition: transform var(--speed) var(--ease);
+      flex:0 0 auto;
+    }
+    details[open] .chev{ transform: rotate(180deg); }
+
+    /* Form */
+    .form-wrap{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .form-card{
+      border-radius: calc(var(--r) + 8px);
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow2);
+      padding: 20px;
+      position: relative;
+      overflow:hidden;
+    }
+    .form-card:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(360px 200px at 0% 0%, rgba(255,227,179,.18), transparent 60%),
+        radial-gradient(360px 200px at 100% 20%, rgba(123,224,210,.14), transparent 62%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .form-card > *{ position: relative; z-index:1; }
+
+    .fields{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+    label{
+      font-size: 13px;
+      color: rgba(15,23,42,.64);
+    }
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(30,41,59,.12);
+      background: rgba(255,255,255,.68);
+      box-shadow: 0 10px 22px rgba(2,6,23,.04);
+      outline:none;
+      transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease), background var(--speed) var(--ease);
+      font-size: 14px;
+      color: rgba(15,23,42,.86);
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(124,140,251,.35);
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.78);
+    }
+    textarea{ min-height: 96px; resize: vertical; }
+
+    .checks{
+      display:grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .check{
+      display:flex; gap: 10px; align-items:flex-start;
+      font-size: 13px;
+      color: rgba(15,23,42,.62);
+      line-height: 1.45;
+    }
+    .check input{
+      width: 18px; height: 18px;
+      margin-top: 2px;
+      accent-color: rgba(124,140,251,.9);
+      box-shadow:none;
+      transform:none;
+    }
+    .legal-links a{
+      color: rgba(15,23,42,.72);
+      text-decoration: underline;
+      text-decoration-color: rgba(124,140,251,.35);
+      text-underline-offset: 3px;
+    }
+    .legal-links a:hover{
+      text-decoration-color: rgba(124,140,251,.65);
+    }
+    .form-actions{
+      display:flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 14px;
+      align-items: center;
+    }
+    .note{
+      font-size: 12.5px;
+      color: rgba(15,23,42,.52);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer{
+      padding: 30px 0 44px;
+      border-top: 1px solid rgba(30,41,59,.08);
+      background: linear-gradient(180deg, rgba(251,251,253,.20), rgba(251,251,253,.65));
+      backdrop-filter: blur(10px);
+    }
+    .footer-grid{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .footer-links a{
+      font-size: 13px;
+      color: rgba(15,23,42,.66);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.44);
+      transition: background var(--speed) var(--ease), border-color var(--speed) var(--ease), transform var(--speed) var(--ease);
+    }
+    .footer-links a:hover{
+      background: rgba(124,140,251,.10);
+      border-color: rgba(124,140,251,.22);
+      transform: translateY(-1px);
+    }
+    .copyright{
+      font-size: 13px;
+      color: rgba(15,23,42,.55);
+      max-width: 52ch;
+      line-height: 1.5;
+    }
+
+    /* Cookie */
+    .cookie{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+      display:none;
+    }
+    .cookie .bar{
+      max-width: min(var(--container), calc(100% - 0px));
+      margin: 0 auto;
+      padding: 14px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(30,41,59,.12);
+      background: rgba(255,255,255,.74);
+      box-shadow: 0 22px 60px rgba(2,6,23,.12);
+      backdrop-filter: blur(14px);
+      display:flex; gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .cookie p{
+      font-size: 13px;
+      color: rgba(15,23,42,.62);
+      margin: 0;
+      flex: 1 1 420px;
+      min-width: 260px;
+    }
+    .cookie .actions{
+      display:flex; gap: 10px; flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* Modal (Legal pages) */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      z-index: 80;
+      padding: 18px;
+      background: rgba(2,6,23,.36);
+      backdrop-filter: blur(10px);
+    }
+    .modal[aria-hidden="false"]{
+      display:grid;
+      place-items: center;
+    }
+    .modal-card{
+      width: min(920px, 100%);
+      max-height: min(86vh, 900px);
+      overflow:auto;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.40);
+      background: rgba(255,255,255,.80);
+      box-shadow: 0 32px 90px rgba(2,6,23,.25);
+      position: relative;
+    }
+    .modal-head{
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 14px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(30,41,59,.10);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+    }
+    .modal-head b{
+      letter-spacing: -0.02em;
+    }
+    .modal-body{
+      padding: 16px 16px 20px;
+      color: rgba(15,23,42,.72);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .modal-body h4{
+      margin: 18px 0 8px;
+      color: rgba(15,23,42,.86);
+      letter-spacing: -0.02em;
+      font-size: 16px;
+    }
+    .modal-body ul{
+      margin: 8px 0 12px 18px;
+    }
+    .modal-close{
+      border-radius: 999px;
+      padding: 10px 12px;
+      border: 1px solid rgba(30,41,59,.12);
+      background: rgba(255,255,255,.64);
+      cursor:pointer;
+      font-weight: 700;
+      transition: transform var(--speed) var(--ease), background var(--speed) var(--ease), border-color var(--speed) var(--ease);
+    }
+    .modal-close:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,140,251,.24);
+      background: rgba(124,140,251,.10);
+    }
+
+    /* Animations */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 700ms var(--ease2), transform 700ms var(--ease2);
+      will-change: opacity, transform;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile menu button */
+    .burger{
+      display:none;
+      border-radius: 999px;
+      padding: 10px 12px;
+      border: 1px solid rgba(30,41,59,.12);
+      background: rgba(255,255,255,.60);
+      cursor:pointer;
+      transition: transform var(--speed) var(--ease), background var(--speed) var(--ease), border-color var(--speed) var(--ease);
+    }
+    .burger:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,140,251,.22);
+      background: rgba(124,140,251,.10);
+    }
+    .mobile-panel{
+      display:none;
+      padding: 10px 0 14px;
+      border-top: 1px solid rgba(30,41,59,.08);
+    }
+    .mobile-panel a{
+      display:block;
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: rgba(15,23,42,.74);
+      border: 1px solid rgba(30,41,59,.08);
+      background: rgba(255,255,255,.46);
+      margin-top: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .menu{ display:none; }
+      .burger{ display:inline-flex; align-items:center; gap: 8px; }
+      .nav-cta{ min-width: auto; }
+      .brand{ min-width: auto; }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-visual{ min-height: 380px; }
+      .hero-bottom{ grid-template-columns: 1fr 1fr; }
+      .grid-4{ grid-template-columns: repeat(2, 1fr); }
+      .steps{ grid-template-columns: repeat(3, 1fr); }
+      .author{ grid-template-columns: 1fr; }
+      .form-wrap{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px){
+      .section{ padding: 62px 0; }
+      .hero-left{ padding: 22px; }
+      .hero-bottom{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .fields{ grid-template-columns: 1fr; }
+      .nav{ padding: 12px 0; }
+    }
+    @media (max-width: 420px){
+      .btn{ width: 100%; justify-content: center; }
+      .nav-cta .btn-secondary{ display:none; }
+      .floating-card{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .mock{ justify-content: flex-start; width: 100%; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal{ opacity: 1 !important; transform:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="На главную">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-title">
+            <b>Travel Book</b>
+            <span>пакет для уверенных поездок</span>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Якорная навигация">
+          <a href="#inside">Что внутри</a>
+          <a href="#formats">Формат</a>
+          <a href="#how">Как работает</a>
+          <a href="#fit">Кому подходит</a>
+          <a href="#result">Результат</a>
+          <a href="#author">Автор</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="nav-cta">
+          <button class="btn btn-secondary" type="button" data-scroll="#inside" aria-label="Смотреть, что внутри">Смотреть, что внутри</button>
+          <button class="btn btn-primary" type="button" data-scroll="#buy" aria-label="Купить">Купить за <span id="priceTop">₸ 9 900</span></button>
+          <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mobilePanel">
+            <span class="sr-only">Открыть меню</span>
+            <!-- icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 7h14M5 12h14M5 17h14" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Меню
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-panel" id="mobilePanel" hidden>
+        <a href="#inside">Что внутри</a>
+        <a href="#formats">Формат</a>
+        <a href="#how">Как работает</a>
+        <a href="#fit">Кому подходит</a>
+        <a href="#result">Результат</a>
+        <a href="#author">Автор</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="kicker reveal">
+          <span class="k-dot" aria-hidden="true"></span>
+          <span>Travel Book + видеоурок для путешествий</span>
+        </div>
+
+        <div class="hero-grid">
+          <!-- Left -->
+          <div class="hero-left reveal">
+            <h1>Путешествуй без стресса</h1>
+
+            <div class="hero-sub">
+              <span class="chip">
+                <!-- icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <b>Уверенность</b> в любой ситуации
+              </span>
+
+              <span class="chip">
+                <!-- icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Готовые сценарии
+              </span>
+
+              <span class="chip">
+                <!-- icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M9 7h6" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Открывай в телефоне
+              </span>
+            </div>
+
+            <p class="lead">
+              Фразы, сценарии и опора, чтобы в поездке говорить спокойно и уверенно —
+              без паники в аэропорту, отеле и городе.
+            </p>
+
+            <div class="bullet-row" aria-label="Коротко о преимуществах">
+              <div class="mini-bullet">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12h18" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M7 8l-4 4 4 4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 8l4 4-4 4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Сценарии по шагам</b>
+                  <span>Аэропорт, отель, кафе, такси, город — без “ступора”.</span>
+                </div>
+              </div>
+
+              <div class="mini-bullet">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3v10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 21a8 8 0 1 0 0-16" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M7 21h10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Видео: как говорить проще</b>
+                  <span>Чтобы звучать уверенно, даже если слов мало.</span>
+                </div>
+              </div>
+
+              <div class="mini-bullet">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 11c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Психологически спокойно</b>
+                  <span>Ты знаешь, что сказать — и это снижает стресс.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-actions" id="buy">
+              <button class="btn btn-primary" type="button" id="buyBtn">
+                Купить за <span id="priceMain">₸ 9 900</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button class="btn btn-secondary" type="button" data-scroll="#formats">
+                Что входит в пакет
+              </button>
+              <button class="btn btn-ghost" type="button" data-scroll="#author">
+                Кто автор
+              </button>
+            </div>
+
+            <div class="trust-mini" aria-label="Мини-доверие">
+              <span class="chip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 7h16" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 7l2 14h8l2-14" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 7V5a3 3 0 0 1 6 0v2" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Доступ сразу после оплаты
+              </span>
+              <span class="chip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 8v4l3 2" stroke="rgba(15,23,42,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="rgba(15,23,42,.7)" stroke-width="2"/>
+                </svg>
+                30–40 минут на внедрение
+              </span>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="hero-right">
+            <div class="hero-visual reveal" aria-label="Визуальный блок с фото и мокапом">
+              <div class="hero-photo">
+                <!-- Replace image path -->
+                <img src="images/hero-travel.jpg" alt="Атмосфера путешествий: спокойный кадр, создающий ощущение уверенности" loading="lazy">
+              </div>
+
+              <div class="floating-card" aria-label="Карточка автора и продукта">
+                <div class="floating-left">
+                  <div class="avatar">
+                    <!-- Replace image path -->
+                    <img src="images/olga.jpg" alt="Ольга Говердовская — автор" loading="lazy">
+                  </div>
+                  <div class="meta">
+                    <b>Ольга Говердовская</b>
+                    <span>Автор пакета • «помогаю путешествовать уверенно»</span>
+                  </div>
+                </div>
+
+                <div class="mock" aria-label="Мокап Travel Book">
+                  <!-- Replace image path -->
+                  <img src="images/book-mockup.png" alt="Обложка Travel Book" loading="lazy">
+                  <span><b>Travel Book</b> + видеоурок</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-bottom">
+              <div class="micro reveal">
+                <div class="ic" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12l2-2 4 4L19 4l2 2-12 12L3 12Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Не надо «учить язык»</b>
+                  <span>Только нужные фразы и сценарии для поездки.</span>
+                </div>
+              </div>
+
+              <div class="micro reveal">
+                <div class="ic" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Опора в критические моменты</b>
+                  <span>Проверенные шаблоны — чтобы не паниковать.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /hero-grid -->
+      </div>
+    </section>
+
+    <!-- Inside -->
+    <section class="section" id="inside">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Коротко</span></div>
+            <h2 class="reveal">Что вы получите внутри</h2>
+            <p class="lead reveal">Структурно, спокойно, без перегруза — чтобы в поездке вы действовали уверенно.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 3h12v18H6V3Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M9 7h6M9 11h6M9 15h4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Travel Book</h3>
+            </div>
+            <p>Понятная “шпаргалка” по ситуациям — открыли и действуете.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16v10H4V7Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M10 10l5 3-5 3v-6Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Видеоурок</h3>
+            </div>
+            <p>Как говорить проще и увереннее, даже если слов мало.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 12h16" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 4v16" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Сценарии</h3>
+            </div>
+            <p>Аэропорт, отель, кафе, такси — быстро, по делу.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Спокойствие</h3>
+            </div>
+            <p>Внутреннее ощущение “я справлюсь” — без стресса и паники.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formats -->
+    <section class="section" id="formats">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Пакет</span></div>
+            <h2 class="reveal">Формат и что входит</h2>
+            <p class="lead reveal">Один пакет — два инструмента: книга-опора + видео, которое снимает “ступор”.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 4h12a2 2 0 0 1 2 2v14H8a2 2 0 0 0-2 2V4Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M6 18h12" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Travel Book</h3>
+            </div>
+            <p>Ситуации + готовые фразы + короткие подсказки, что сказать “в моменте”.</p>
+            <p class="note">Формат: удобно читать в телефоне. Можно распечатать.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16v10H4V7Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M10 10l5 3-5 3v-6Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Видеоурок</h3>
+            </div>
+            <p>Как говорить уверенно: простые структуры, понятная подача, без “академизма”.</p>
+            <p class="note">Доступ: сразу после оплаты. Ссылки придут автоматически.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Просто</span></div>
+            <h2 class="reveal">Как это работает</h2>
+            <p class="lead reveal">Минимум действий — максимум уверенности. Вы не учите, вы используете.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <b>Получаете доступ</b>
+            <span>Сразу после оплаты: книга + видео.</span>
+          </div>
+          <div class="step reveal">
+            <div class="num">2</div>
+            <b>Смотрите видео</b>
+            <span>Понимаете, как говорить проще и спокойнее.</span>
+          </div>
+          <div class="step reveal">
+            <div class="num">3</div>
+            <b>Открываете сценарий</b>
+            <span>Аэропорт / отель / кафе — выбираете ситуацию.</span>
+          </div>
+          <div class="step reveal">
+            <div class="num">4</div>
+            <b>Используете фразы</b>
+            <span>Коротко и по делу, без ощущения “я теряюсь”.</span>
+          </div>
+          <div class="step reveal">
+            <div class="num">5</div>
+            <b>Едете спокойнее</b>
+            <span>Потому что у вас есть опора на каждый момент.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fit -->
+    <section class="section" id="fit">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Кому</span></div>
+            <h2 class="reveal">Кому подходит</h2>
+            <p class="lead reveal">Если вы не хотите “учить язык”, а хотите уверенно решать задачи в поездке.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20
+                  <path d="M3 12h18" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 12l3 3 7-7" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Первый раз за границей</h3>
+            </div>
+            <p>Когда хочется, чтобы всё прошло спокойно: без лишнего волнения и “я растерялся(лась)”.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 10h16" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 6h12" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 10v10h10V10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M9 14h6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Командировки и деловые поездки</h3>
+            </div>
+            <p>Нужно быстро решать вопросы на месте: регистрация, просьбы, уточнения, сервис.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 20a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" stroke="rgba(15,23,42,.78)" stroke-width="2"/>
+                  <path d="M12 9v4l3 2" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 4l2 2" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M20 4l-2 2" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Когда “времени нет”</h3>
+            </div>
+            <p>Если хочется подготовиться быстро: понять логику, взять фразы и быть спокойным(ой).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section class="section" id="result">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>После</span></div>
+            <h2 class="reveal">Что изменится в поездке</h2>
+            <p class="lead reveal">Не “идеальный английский”, а ощущение контроля: вы понимаете, что сказать и что делать.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Больше спокойствия</h3>
+            </div>
+            <p>Вы перестаёте “держать стресс” в голове: есть опора на каждый момент.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M8 12h8" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 8v8" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Быстрее решения</h3>
+            </div>
+            <p>Вместо импровизации — готовые шаблоны: вы действуете чётко и мягко.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 6l-2 2" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 18l-2-2" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Уверенная речь</h3>
+            </div>
+            <p>Даже простые слова звучат уверенно, когда вы знаете структуру и тон.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Author -->
+    <section class="section" id="author">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Доверие</span></div>
+            <h2 class="reveal">Автор</h2>
+            <p class="lead reveal">Ольга Говердовская — помогает путешествовать уверенно: спокойно, структурно, без “перегруза”.</p>
+          </div>
+        </div>
+
+        <div class="author">
+          <div class="author-photo reveal" aria-label="Фото автора">
+            <img src="images/olga.jpg" alt="Ольга Говердовская — автор" loading="lazy">
+          </div>
+
+          <div class="author-card reveal">
+            <h3>Почему можно доверять</h3>
+            <p class="quote">Этот пакет — про ясность и спокойствие в поездке: вы заранее знаете, что сказать и как попросить — без ступора.</p>
+
+            <div class="facts" aria-label="Факты доверия">
+              <div class="fact">
+                <div class="ic" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Формат “взял и применил”</b>
+                  <span>Минимум теории, максимум сценариев и опоры.</span>
+                </div>
+              </div>
+
+              <div class="fact">
+                <div class="ic" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 4h12v16H6V4Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M9 8h6M9 12h6M9 16h4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Понятная структура</b>
+                  <span>Вы быстро находите нужный сценарий в моменте.</span>
+                </div>
+              </div>
+
+              <div class="fact">
+                <div class="ic" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 12h16" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M7 8l-3 4 3 4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 8l3 4-3 4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Видеоурок снимает “ступор”</b>
+                  <span>Вы понимаете, как говорить проще и увереннее.</span>
+                </div>
+              </div>
+
+              <div class="fact">
+                <div class="ic" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3v18" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 10h14" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M7 14h10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>Подходит под разные поездки</b>
+                  <span>От отпуска до командировки — с одной логикой.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-actions" style="margin-top:16px">
+              <button class="btn btn-primary" type="button" data-scroll="#contacts">
+                Получить доступ за <span id="priceAuthor">₸ 9 900</span>
+              </button>
+              <button class="btn btn-secondary" type="button" data-scroll="#reviews">Смотреть отзывы</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Отзывы</span></div>
+            <h2 class="reveal">Результаты покупателей</h2>
+            <p class="lead reveal">Коротко и по делу: что меняется, когда есть сценарии и спокойная структура.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 10h10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 14h7" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8l-4 3V6a2 2 0 0 1 2-2Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Алина • пакет</h3>
+            </div>
+            <p>«В аэропорту перестала паниковать. Просто открыла нужный сценарий и спокойно сказала фразу. Очень облегчает.»</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Данияр • пакет</h3>
+            </div>
+            <p>«Видео помогает не “заучивать”, а говорить проще. Это ощущается как уверенность, а не как урок.»</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16v10H4V7Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M8 17l-2 4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M16 17l2 4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M10 10l5 3-5 3v-6Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Марина • пакет</h3>
+            </div>
+            <p>«В отеле и кафе стало проще. Не нужно “искать слова”, всё уже в книге — остается просто сказать.»</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bonus -->
+    <section class="section" id="bonus">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Бонус</span></div>
+            <h2 class="reveal">Мини-шпаргалка в подарок</h2>
+            <p class="lead reveal">Небольшой бесплатный материал, чтобы почувствовать формат и спокойную структуру.</p>
+          </div>
+        </div>
+
+        <div class="form-wrap">
+          <div class="form-card reveal">
+            <h3>Получить шпаргалку</h3>
+            <p>Оставьте контакт — отправим ссылку. Никакого “шума”, только по делу.</p>
+
+            <form id="leadFormBonus" novalidate>
+              <div class="fields">
+                <div class="field">
+                  <label for="bName">Имя</label>
+                  <input id="bName" name="name" type="text" placeholder="Например, Алина" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="bContact">Контакт (Telegram / телефон / email)</label>
+                  <input id="bContact" name="contact" type="text" placeholder="+7 … / @username / email" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="checks legal-links">
+                <div class="check">
+                  <input id="bAgreePd" type="checkbox" required>
+                  <label for="bAgreePd">
+                    Согласен(на) на обработку персональных данных и ознакомлен(а) с
+                    <a href="#" data-legal="privacy">политикой</a>.
+                  </label>
+                </div>
+                <div class="check">
+                  <input id="bAgreeMail" type="checkbox">
+                  <label for="bAgreeMail">
+                    Согласен(на) на рассылки (если применимо) —
+                    <a href="#" data-legal="mailing">условия</a>.
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Получить шпаргалку</button>
+                <button class="btn btn-secondary" type="button" data-scroll="#formats">Смотреть пакет</button>
+              </div>
+
+              <p class="note">Нажимая кнопку, вы подтверждаете согласие с <a href="#" data-legal="personal">ПД</a> и <a href="#" data-legal="offer">офертой</a> (если есть оплата).</p>
+            </form>
+          </div>
+
+          <div class="card soft reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3v18" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 8h10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 12h10" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 16h7" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Что внутри бонуса</h3>
+            </div>
+            <p>Короткие фразы-опоры на типичные ситуации, чтобы вы почувствовали формат “открыть и сказать”.</p>
+            <p class="note">Если бонус не нужен — просто пропустите блок. Пакет можно купить сразу.</p>
+            <div class="hero-actions" style="margin-top:14px">
+              <button class="btn btn-primary" type="button" data-scroll="#contacts">Купить за <span id="priceBonus">₸ 9 900</span></button>
+              <button class="btn btn-ghost" type="button" data-scroll="#faq">Вопросы</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>FAQ</span></div>
+            <h2 class="reveal">Частые вопросы</h2>
+            <p class="lead reveal">Коротко, понятно, без лишнего — как и весь продукт.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary>
+              Нужно ли “учить английский”, чтобы это работало?
+              <span class="chev" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-content">
+              Нет. Это формат “взял и применил”: вы используете готовые фразы и спокойную структуру, чтобы говорить уверенно в ситуации.
+            </div>
+          </details>
+
+          <details class="reveal">
+            <summary>
+              Когда я получу доступ?
+              <span class="chev" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-content">
+              Сразу после оплаты: вы получаете ссылку на Travel Book и видеоурок.
+            </div>
+          </details>
+
+          <details class="reveal">
+            <summary>
+              Подойдёт ли для поездки в любую страну?
+              <span class="chev" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-content">
+              Да. Сценарии универсальные: аэропорт, отель, город, кафе, транспорт — применимы в большинстве поездок.
+            </div>
+          </details>
+
+          <details class="reveal">
+            <summary>
+              Можно ли открыть в телефоне?
+              <span class="chev" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-content">
+              Да. Материалы удобно использовать в дороге, в том числе прямо перед диалогом.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="section" id="contacts">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker reveal"><span class="k-dot"></span><span>Действие</span></div>
+            <h2 class="reveal">Купить или задать вопрос</h2>
+            <p class="lead reveal">Выберите удобный вариант: покупка или короткий вопрос — ответим спокойно и по делу.</p>
+          </div>
+        </div>
+
+        <div class="form-wrap">
+          <div class="form-card reveal">
+            <h3>Оставить заявку</h3>
+            <p>Напишите контакт — мы отправим инструкции по доступу или ответим на вопрос.</p>
+
+            <form id="leadForm" novalidate>
+              <div class="fields">
+                <div class="field">
+                  <label for="name">Имя</label>
+                  <input id="name" name="name" type="text" placeholder="Например, Марина" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="contact">Контакт (Telegram / телефон / email)</label>
+                  <input id="contact" name="contact" type="text" placeholder="+7 … / @username / email" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="field" style="margin-top:12px">
+                <label for="msg">Сообщение (необязательно)</label>
+                <textarea id="msg" name="message" placeholder="Например: хочу купить / нужен доступ / уточнить формат"></textarea>
+              </div>
+
+              <div class="checks legal-links">
+                <div class="check">
+                  <input id="agreePd" type="checkbox" required>
+                  <label for="agreePd">
+                    Согласен(на) на обработку персональных данных и ознакомлен(а) с
+                    <a href="#" data-legal="privacy">политикой</a>.
+                  </label>
+                </div>
+                <div class="check">
+                  <input id="agreeOffer" type="checkbox">
+                  <label for="agreeOffer">
+                    Ознакомлен(а) с <a href="#" data-legal="offer">офертой</a> (если есть оплата).
+                  </label>
+                </div>
+                <div class="check">
+                  <input id="agreeMail" type="checkbox">
+                  <label for="agreeMail">
+                    Согласен(на) на рассылки (если применимо) —
+                    <a href="#" data-legal="mailing">условия</a>.
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Купить за <span id="priceForm">₸ 9 900</span></button>
+                <button class="btn btn-secondary" type="button" id="questionBtn">Задать вопрос</button>
+              </div>
+
+              <p class="note">Нажимая кнопку, вы подтверждаете согласие с <a href="#" data-legal="personal">обработкой ПД</a> и ознакомление с юридическими условиями.</p>
+            </form>
+          </div>
+
+          <div class="card soft reveal">
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 7h10v10H7V7Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M4 4h16v16H4V4Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linejoin="round" opacity=".55"/>
+                  <path d="M9 12h6" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3>Контакты</h3>
+            </div>
+            <p>Добавьте сюда удобные каналы: WhatsApp / Telegram / Instagram.</p>
+            <p class="note">
+              Пример: <b>Telegram</b> @yourname • <b>WhatsApp</b> +7 … • <b>Email</b> hello@domain.com
+            </p>
+
+            <div class="hero-actions" style="margin-top:14px">
+              <button class="btn btn-secondary" type="button" data-scroll="#formats">Сначала посмотреть формат</button>
+              <button class="btn btn-ghost" type="button" data-scroll="#top">Наверх</button>
+            </div>
+
+            <div style="margin-top:14px" class="legal-links">
+              <p class="note">
+                Юридические страницы:
+                <a href="#" data-legal="privacy">Политика</a> •
+                <a href="#" data-legal="personal">Согласие ПД</a> •
+                <a href="#" data-legal="offer">Оферта</a> •
+                <a href="#" data-legal="mailing">Рассылки</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true"></div>
+            <div class="brand-title">
+              <b>Travel Book</b>
+              <span>Travel Book + видеоурок</span>
+            </div>
+          </div>
+
+          <div class="footer-links legal-links" aria-label="Юридические ссылки">
+            <a href="#" data-legal="privacy">Политика конфиденциальности</a>
+            <a href="#" data-legal="personal">Согласие на обработку ПД</a>
+            <a href="#" data-legal="offer">Договор оферты</a>
+            <a href="#" data-legal="mailing">Согласие на рассылки</a>
+          </div>
+
+          <div class="copyright">
+            <span id="year"></span> © Travel Book. Все права защищены. Материалы предназначены для личного использования.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Cookie -->
+  <div class="cookie" id="cookie">
+    <div class="bar">
+      <p>
+        Мы используем cookie для улучшения работы сайта. Нажимая «Принять», вы соглашаетесь с
+        <a href="#" data-legal="privacy">политикой конфиденциальности</a>.
+      </p>
+      <div class="actions">
+        <button class="btn btn-secondary" type="button" id="cookieClose">Закрыть</button>
+        <button class="btn btn-primary" type="button" id="cookieAccept">Принять</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card" role="document">
+      <div class="modal-head">
+        <b id="modalTitle">Документ</b>
+        <button class="modal-close" type="button" id="modalClose" aria-label="Закрыть">Закрыть</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <template id="tpl-privacy">
+    <h4>Политика конфиденциальности</h4>
+    <p>Настоящая политика описывает порядок обработки и защиты персональных данных пользователей сайта.</p>
+    <h4>1. Какие данные могут собираться</h4>
+    <ul>
+      <li>Имя, контакт (телефон/мессенджер/email), сообщение пользователя.</li>
+      <li>Технические данные: cookie, сведения о браузере и устройстве (в пределах стандартной аналитики).</li>
+    </ul>
+    <h4>2. Цели обработки</h4>
+    <ul>
+      <li>Обработка обращений и предоставление доступа к продукту.</li>
+      <li>Улучшение качества сайта и сервиса.</li>
+      <li>Рассылки — только при наличии согласия.</li>
+    </ul>
+    <h4>3. Хранение и защита</h4>
+    <p>Данные хранятся ограниченный срок и обрабатываются с применением разумных организационных и технических мер защиты.</p>
+    <h4>4. Передача третьим лицам</h4>
+    <p>Данные могут передаваться сервисам оплаты/доставки доступа/аналитики в объёме, необходимом для оказания услуги.</p>
+    <h4>5. Права пользователя</h4>
+    <p>Пользователь вправе запросить уточнение, обновление или удаление данных, направив обращение по указанным контактам.</p>
+  </template>
+
+  <template id="tpl-personal">
+    <h4>Согласие на обработку персональных данных</h4>
+    <p>Отправляя формы на сайте, пользователь предоставляет согласие на обработку персональных данных в целях обработки обращения и предоставления доступа к продукту.</p>
+    <h4>Состав данных</h4>
+    <p>Имя, контактные данные, сообщение и иные сведения, которые пользователь добровольно указывает.</p>
+    <h4>Срок согласия</h4>
+    <p>До достижения целей обработки или до отзыва согласия пользователем.</p>
+    <h4>Отзыв согласия</h4>
+    <p>Пользователь может отозвать согласие, направив запрос по контактам, указанным на сайте.</p>
+  </template>
+
+  <template id="tpl-offer">
+    <h4>Договор оферты</h4>
+    <p>Настоящий документ является предложением заключить договор на предоставление цифрового продукта (Travel Book + видеоурок) на условиях, изложенных ниже.</p>
+    <h4>1. Предмет</h4>
+    <p>Исполнитель предоставляет доступ к цифровым материалам, Заказчик оплачивает продукт по указанной цене.</p>
+    <h4>2. Порядок оплаты и доступа</h4>
+    <p>Доступ предоставляется после подтверждения оплаты. Способ предоставления доступа определяется Исполнителем (ссылка/личный кабинет/сообщение).</p>
+    <h4>3. Использование материалов</h4>
+    <p>Материалы предназначены для личного использования. Запрещено распространение и перепродажа без письменного согласия правообладателя.</p>
+    <h4>4. Возвраты</h4>
+    <p>Условия возврата определяются правилами оплаты и применимым законодательством. При предоставлении доступа к цифровому контенту могут действовать ограничения.</p>
+    <h4>5. Контакты</h4>
+    <p>Контактные данные Исполнителя указываются в блоке «Контакты» на сайте.</p>
+  </template>
+
+  <template id="tpl-mailing">
+    <h4>Согласие на рассылки</h4>
+    <p>Отмечая согласие на рассылки, пользователь разрешает получение информационных материалов, обновлений и предложений по указанному контакту.</p>
+    <h4>Отказ от рассылок</h4>
+    <p>Пользователь может отказаться от рассылок в любой момент — через ответное сообщение или запрос по контактам сайта.</p>
+  </template>
+
+  <script>
+    (function(){
+      const PRICE = "₸ 9 900";
+
+      const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+      };
+
+      setText("priceTop", PRICE);
+      setText("priceMain", PRICE);
+      setText("priceAuthor", PRICE);
+      setText("priceBonus", PRICE);
+      setText("priceForm", PRICE);
+
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const burger = document.getElementById("burger");
+      const mobilePanel = document.getElementById("mobilePanel");
+      if (burger && mobilePanel){
+        burger.addEventListener("click", () => {
+          const expanded = burger.getAttribute("aria-expanded") === "true";
+          burger.setAttribute("aria-expanded", String(!expanded));
+          mobilePanel.hidden = expanded;
+        });
+
+        mobilePanel.querySelectorAll("a").forEach(a => {
+          a.addEventListener("click", () => {
+            burger.setAttribute("aria-expanded", "false");
+            mobilePanel.hidden = true;
+          });
+        });
+      }
+
+      const smoothScrollTo = (selector) => {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
+      document.querySelectorAll("[data-scroll]").forEach(btn => {
+        btn.addEventListener("click", () => smoothScrollTo(btn.getAttribute("data-scroll")));
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (!href || href === "#") return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add("in");
+        });
+      }, { threshold: 0.12 }) : null;
+
+      document.querySelectorAll(".reveal").forEach(el => {
+        if (!io) el.classList.add("in");
+        else io.observe(el);
+      });
+
+      const cookie = document.getElementById("cookie");
+      const cookieAccept = document.getElementById("cookieAccept");
+      const cookieClose = document.getElementById("cookieClose");
+      const COOKIE_KEY = "tb_cookie_ok";
+
+      const showCookie = () => {
+        if (!cookie) return;
+        if (localStorage.getItem(COOKIE_KEY) === "1") return;
+        cookie.style.display = "block";
+      };
+      const hideCookie = () => {
+        if (!cookie) return;
+        cookie.style.display = "none";
+      };
+      if (cookieAccept){
+        cookieAccept.addEventListener("click", () => {
+          localStorage.setItem(COOKIE_KEY, "1");
+          hideCookie();
+        });
+      }
+      if (cookieClose){
+        cookieClose.addEventListener("click", hideCookie);
+      }
+      window.addEventListener("load", showCookie);
+
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+      const modalClose = document.getElementById("modalClose");
+      let lastFocus = null;
+
+      const legalMap = {
+        privacy: { title: "Политика конфиденциальности", tpl: "tpl-privacy" },
+        personal: { title: "Согласие на обработку ПД", tpl: "tpl-personal" },
+        offer: { title: "Договор оферты", tpl: "tpl-offer" },
+        mailing: { title: "Согласие на рассылки", tpl: "tpl-mailing" }
+      };
+
+      const openModal = (key) => {
+        if (!modal || !modalBody || !modalTitle) return;
+        const item = legalMap[key];
+        if (!item) return;
+
+        const tpl = document.getElementById(item.tpl);
+        if (!tpl) return;
+
+        lastFocus = document.activeElement;
+        modalTitle.textContent = item.title;
+        modalBody.innerHTML = "";
+        modalBody.appendChild(tpl.content.cloneNode(true));
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        if (modalClose) modalClose.focus();
+      };
+
+      const closeModal = () => {
+        if (!modal) return;
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      };
+
+      document.querySelectorAll("[data-legal]").forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(a.getAttribute("data-legal"));
+        });
+      });
+
+      if (modalClose) modalClose.addEventListener("click", closeModal);
+      if (modal){
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal && modal.getAttribute("aria-hidden") === "false") closeModal();
+      });
+
+      const buyBtn = document.getElementById("buyBtn");
+      if (buyBtn){
+        buyBtn.addEventListener("click", () => smoothScrollTo("#contacts"));
+      }
+
+      const questionBtn = document.getElementById("questionBtn");
+      if (questionBtn){
+        questionBtn.addEventListener("click", () => {
+          const msg = document.getElementById("msg");
+          if (msg) {
+            msg.focus();
+            msg.value = msg.value || "Здравствуйте! Хочу уточнить по Travel Book + видеоуроку.";
+          } else smoothScrollTo("#contacts");
+        });
+      }
+
+      const validateForm = (form, requiredCheckboxId) => {
+        const cb = document.getElementById(requiredCheckboxId);
+        if (cb && !cb.checked) {
+          cb.focus();
+          return false;
+        }
+        return true;
+      };
+
+      const handleSubmit = (form, requiredCheckboxId) => {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          if (!validateForm(form, requiredCheckboxId)) return;
+
+          const data = new FormData(form);
+          const payload = {};
+          data.forEach((v, k) => payload[k] = String(v).trim());
+
+          closeModal();
+
+          const ok = document.createElement("div");
+          ok.className = "card soft";
+          ok.style.marginTop = "14px";
+          ok.innerHTML = `
+            <div class="card-top">
+              <div class="icon-pill" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Спасибо! Мы получили заявку</h3>
+            </div>
+            <p>Скоро свяжемся по указанному контакту.</p>
+          `;
+
+          form.parentElement.appendChild(ok);
+          form.reset();
+        });
+      };
+
+      const leadForm = document.getElementById("leadForm");
+      if (leadForm) handleSubmit(leadForm, "agreePd");
+
+      const leadFormBonus = document.getElementById("leadFormBonus");
+      if (leadFormBonus) handleSubmit(leadFormBonus, "bAgreePd");
+    })();
+  </script>
+</body>
+</html>
