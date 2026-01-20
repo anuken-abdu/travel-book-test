@@ -171,17 +171,15 @@
     .mp-cta{margin-top:10px}
 
     /* ====== Hero ====== */
-    .hero{
-      position: relative;
-      min-height: calc(100svh - 78px);
-      display:flex;
-      align-items:stretch;
-      overflow:hidden;
-      background:
-        radial-gradient(900px 520px at 55% 20%, rgba(255,47,144,.10), rgba(255,255,255,0) 60%),
-        radial-gradient(700px 420px at 75% 35%, rgba(255,47,144,.08), rgba(255,255,255,0) 65%),
-        #fff;
-    }
+.hero{
+  position: relative;
+  min-height: calc(100svh - 78px);
+  display:flex;
+  flex-direction: column; /* ВАЖНО: чтобы бар был снизу, а не справа */
+  align-items:stretch;
+  overflow:hidden;
+  background: ...;
+}
 
     /* right pink sidebar hint */
     .side-accent{
@@ -203,14 +201,16 @@
       opacity:.65;
     }
 
-    .hero-grid{
-      position: relative;
-      flex:1;
-      display:grid;
-      grid-template-columns: 1fr minmax(340px, 420px) 1fr;
-      align-items:end;
-      padding: 34px var(--pad) 0;
-    }
+.hero-grid{
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;                 /* чтобы grid не вылазил и не создавал боковые сдвиги */
+  display: grid;
+  grid-template-columns: 1fr minmax(520px, 700px) 1fr;
+  align-items: end;
+  padding: 34px var(--pad) 0;
+}
     .hero-left{
       padding-bottom: 90px;
     }
@@ -256,19 +256,24 @@
       padding-bottom: 90px;
     }
 
-    .hero-bar{
-      margin-top:auto;
-      width:100%;
-      background: var(--pink);
-      color:#fff;
-      height: 62px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-size: 12px;
-    }
+.hero-bar{
+  margin-top:auto;
+  width:100%;
+  height: 62px;
+
+  /* фикс: чтобы на телефоне не “уезжало” вправо и всегда было снизу */
+  display:flex;
+  flex: 0 0 62px;      /* не даём растягиваться/схлопываться как flex-элементу */
+  align-self: stretch; /* всегда на всю ширину контейнера hero */
+
+  background: var(--pink);
+  color:#fff;
+  align-items:center;
+  justify-content:center;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 12px;
+}
 
     /* ====== Section base ====== */
     section{
