@@ -782,14 +782,59 @@
       .choose-grid{grid-template-columns: 1fr; gap: 26px}
       .cards{gap: 38px}
 
-      .reviews-stage{min-height: 960px}
-      .q1{left:0; top:40px}
-      .q3{right:0; top:160px}
-      .q2{left:50%; top:300px}
-      .q4{right:0; top:540px}
-      .q5{left:0; top:520px}
-      .q6{left:0; bottom:140px}
-      .q7{left:50%; bottom:40px}
+      /* ===== Reviews mobile: list like screenshot + correct order ===== */
+      .reviews-stage{
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding-top: 10px;
+      }
+
+      .reviews-title{
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        text-align: left;
+        margin: 0 0 6px;
+        order: 0;
+      }
+
+      .reviews-title h2{
+        font-size: 64px;
+        line-height: 1;
+      }
+
+      .quote{
+        position: relative;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+
+        width: 100%;
+        max-width: none;
+
+        box-shadow: none;
+        border: 1px solid var(--line);
+      }
+
+      .quote:hover{
+        transform: none;
+        box-shadow: none;
+      }
+
+      /* Порядок карточек на мобиле как на твоём скрине:
+         Катя → Светлана → Александр → Даниил → далее остальные */
+      .q1{order: 1}  /* Катя */
+      .q4{order: 2}  /* Светлана */
+      .q3{order: 3}  /* Александр */
+      .q2{order: 4}  /* Даниил */
+      .q5{order: 5}
+      .q7{order: 6}
+      .q6{order: 7}
 
       .aboutHero-grid{grid-template-columns: 1fr; gap: 24px}
       .aboutRight{margin-left:0; max-width: 520px}
